@@ -7,8 +7,8 @@ import random
 
 dry_run = False # If true, will print output directory.
 
-input_path = '/Users/ayush/Documents/GitHub/LEGO-Sorter/data/'
-output_path = '/Users/ayush/Documents/GitHub/LEGO-Sorter/data/output'
+input_path = '/Users/ayush/Documents/LEGO Sorter/LEGO-Sorter/data/'
+output_path = '/Users/ayush/Documents/LEGO Sorter/LEGO-Sorter/data/output'
 show_image = False
 
 train_test_split = 0.3
@@ -72,7 +72,9 @@ for part_number in part_numbers:
 
          # Determine if it should be output to train or test.
          test_or_train = 'train'        
-         if index < int(num_files * train_test_split): 
+         if index < int(num_files * train_test_split / 2): 
+               test_or_train = 'val'
+         elif index < int(num_files * train_test_split): 
                test_or_train = 'test'
          
          # Prepare the output folder.
